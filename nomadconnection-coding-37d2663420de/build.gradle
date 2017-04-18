@@ -1,0 +1,25 @@
+group 'com.nomadconnection'
+version '0.0.1'
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile('junit:junit:4.12')
+}
+
+task pom << {
+    pom {
+        project {
+            groupId 'com.nomadconnection'
+            artifactId rootProject.name
+            version version
+        }
+    }.writeTo("pom.xml")
+}
